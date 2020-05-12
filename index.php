@@ -9,13 +9,13 @@
     <title>Hotel Cali</title>
 </head>
 <body class="bg">
-<div class="flex">
+<div>
     <nav class="menu">
         <ul class="menu__list">
             <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
             <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>
-            <li class="menu__group"><a href="#" class="menu__link">Rooms </a></li>
-            <li class="menu__group"><a href="rooms.php" class="menu__link">Reservations</a></li>
+            <li class="menu__group"><a href="rooms.php" class="menu__link">Rooms </a></li>
+            <li class="menu__group"><a href="calendar.php" class="menu__link">Reservations</a></li>
             <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
         </ul>
     </nav>
@@ -48,7 +48,7 @@
 
     </div>
     <div class="center">
-        <button class="button-warning"><a href="#">Book a room now</a></button>
+        <button class="button-warning"><a href="rooms.php">Book now a room</a></button>
     </div>
     <br>
 
@@ -79,7 +79,13 @@
             setTimeout(showSlides, 5000); // Change image every 2 seconds
         }
     </script>
+<div>
+    <blockquote>
+        <h2>Are you looking for ultimate relaxation?</h2>
+        <h3>Well than you are on the right adress!</h3>
+    </blockquote>
 
+</div>
 </div>
 </body>
 </html>

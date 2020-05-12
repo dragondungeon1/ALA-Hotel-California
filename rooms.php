@@ -1,79 +1,3 @@
-<?php
-function build_calendar($month, $year){
-//een array met de namen van de dagen van de week.
-    $daysOfWeek = array("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday");
-
-    $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
-//  Nummers van de dagen in een maand
-
-    $numberDays = date('t', $firstDayOfMonth);
-
-//  informatie over de eerste dag van deze maand
-    $dateComponents = getdate($firstDayOfMonth);
-
-//  de naam ophalen van deze maand
-    $monthName = $dateComponents['month'];
-
-//  getting thenindex value 0-6 of the first day of this month
-    $daysOfWeek = $dateComponents['wday'];
-
-//  Huidige datum
-    $dateToday = date('Y-m-d');
-
-//  html talbe
-    $calendar = "<table> ";
-    $calendar = "<p><h2>$monthName $year</h2></p>";
-
-    $calendar = "<tr>";
-//    de kalender manekn
-foreach ($daysOfWeek as $day){
-    $calendar = "<th> $day </th> ";
-}
-$calendar = "<tr> </tr>";
-if ($daysOfWeek > 0){
-    for ($k =0;$k<$daysOfWeek;$k++){
-        $calendar = "<td> </td>";
-    }
-}
-
-//de dag teller
-$currentDay = 1;
-
-// maand nummer
-    $month = str_pad($month, 2, "0", STR_PAD_LEFT);
-    while ($currentDay <= $numberDays){
-
-//        als 7e column is bereikt (zaterdag) stat een nieuwe row
-
-        if ($daysOfWeek == 7){
-            $daysOfWeek = 0;
-            $calendar = "</tr> <tr>";
-        }
-
-        $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
-        $date = "$year-$month-$currentDayRel";
-
-        $calendar = "<><h4>$currentDay</h4>";
-
-        $calendar = "</td>";
-
-        $currentDay++;
-        $daysOfWeek++;
-    }
-
-    if ($daysOfWeek != 7){
-        $remainingDays = 7-$daysOfWeek;
-        for ($i=o;$i<$remainingDays;$i++){
-            $calendar = "<td> </td>";
-        }
-    }
-    $calendar = "</tr>";
-    $calendar = "</table>";
-
-    echo $calendar;
-}
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -81,14 +5,52 @@ $currentDay = 1;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/stylesheet.css">
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $dateComponents = getdate();
-    $month = $dateComponents['mon'];
-    $year = $dateComponents['year'];
-    echo build_calendar($month, $year)
-    ?>
+<div>
+    <div>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
+                <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>
+                <li class="menu__group"><a href="#" class="menu__link">Rooms </a></li>
+                <li class="menu__group"><a href="calendar.php" class="menu__link">Reservations</a></li>
+                <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<br> <br> <br> <br> <br> <br>
+<div class="flex">
+    <div class="card">
+        <img class="one_img" src="img/kamer1.jpg" alt="Denim Jeans" style="width:100%">
+        <h1>Room 1</h1>
+        <p class="price">$150 the night</p>
+        <p>This is a 2 bed bedroom with a shower, TV, free wifi and a balcony .</p>
+        <p><button class="button-primary" style="width: 95%;">Book room</button></p>
+    </div>
+
+    <div class="card">
+        <img class="one_img" src="img/kamer2.jpg" alt="Denim Jeans" style="width:100%">
+        <h1>Room 2</h1>
+        <p class="price">$120 the night</p>
+        <p></p>
+        <p><button class="button-primary" style="width: 95%;">Book room</button></p>
+    </div>
+
+    <div class="card">
+        <img class="one_img" src="img/kamer3.jpg" alt="Denim Jeans" style="width:100%">
+        <h1>Room 3</h1>
+        <p class="price">$100 the night</p>
+        <p></p>
+        <p><button class="button-primary" style="width: 95%;">Book room</button></p>
+    </div>
+</div>
+
 </body>
 </html>
+
+
+<?php
