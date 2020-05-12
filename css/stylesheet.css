@@ -1,20 +1,26 @@
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+}
+
 .bg{
-    background-color: darkgray;
+    /*background-color: black ;*/
 }
 
 /*
 
-EFFECT FADING OUT FOR
+Fading out effect
 */
+
 
 .menu:hover .menu__link:not(:hover){
     color: #241c69;
 }
 
 /*
-=====
-MENU STYLES
-=====
+
+Styles for the menu
+
 */
 
 /* core styles */
@@ -233,5 +239,75 @@ img {vertical-align: middle;}
     color: white;
 
 }
+
+/*!*We can't use bootstrap because the teachers say it makes it too easy. well i'll create my own kind of framework */
+.button-primary:hover {opacity: 0.6}
+.button-danger:hover {opacity: 0.6}
+.button-succes:hover {opacity: 0.6}
+.button-warning:hover {opacity: 0.6}
+
+.button-succes{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.button-danger{
+    background-color: red; /* red */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.button-warning{
+    background-color: orange; /* orange */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.button-primary{
+    background-color: royalblue; /* blue */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
 
 

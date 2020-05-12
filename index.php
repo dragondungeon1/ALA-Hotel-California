@@ -9,7 +9,7 @@
     <title>Hotel Cali</title>
 </head>
 <body class="bg">
-<div>
+<div class="flex">
     <nav class="menu">
         <ul class="menu__list">
             <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
@@ -25,6 +25,7 @@
 </div>
 <br>
 <div>
+
     <div class="slideshow-container">
 
         <div class="mySlides fade">
@@ -45,6 +46,9 @@
             <div class="text">Room 3</div>
         </div>
 
+    </div>
+    <div class="center">
+        <button class="button-warning"><a href="#">Book a room now</a></button>
     </div>
     <br>
 
@@ -75,6 +79,7 @@
             setTimeout(showSlides, 5000); // Change image every 2 seconds
         }
     </script>
+
 </div>
 </body>
 </html>
