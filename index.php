@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
     <title>Hotel Cali</title>
 </head>
 <body class="bg">
@@ -29,21 +31,33 @@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
+            <div class="numbertext">1 / 5</div>
             <img class="kamer" src="img/kamer1.jpg" style="width:100%">
             <div class="text">Room 1</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
+            <div class="numbertext">2 / 5</div>
             <img class="kamer" src="img/kamer2.jpg" style="width:100%">
             <div class="text">Room 2</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
+            <div class="numbertext">3 / 5 </div>
             <img class="kamer" src="img/kamer3.jpg" style="width:100%">
             <div class="text">Room 3</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img class="kamer" src="img/pool1.jpg" style="width:100%">
+            <div class="text">Pool 1</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img class="kamer" src="img/pool2.jpeg" style="width:100%">
+            <div class="text">Pool 2</div>
         </div>
 
     </div>
@@ -56,6 +70,8 @@
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
     </div>
 
     <script>
@@ -76,13 +92,18 @@
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 5000); // Change image every 2 seconds
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
     </script>
-<div>
-    <blockquote>
+<div class="TB">
+    <blockquote style="padding: 1px">
         <h2>Are you looking for ultimate relaxation?</h2>
-        <h3>Well than you are on the right adress!</h3>
+        <h3>Well than you are on the right adress! Hotel California is one <br>
+            of the biggest and best hotels you can get. We have a <br>
+            nice pool for when it is hot outside, and for in the evening <br>
+            we have a smoking hot sauna that you can use. And if that isn't <br>
+            enough you can always order room service when you are hungry or <br>
+            hungover of course </h3>
     </blockquote>
 
 </div>
