@@ -10,19 +10,23 @@
     <title>Document</title>
 </head>
 <body>
+
+<!--navbar-->
 <div>
     <div>
         <nav class="menu">
             <ul class="menu__list">
+                <img class="img-test" src="img/grey2.jpg" alt="logo">
                 <li class="menu__group"><a href="index.php" class="menu__link">Hotel California</a></li>
                 <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>
                 <li class="menu__group"><a href="#" class="menu__link">Rooms </a></li>
-                <li class="menu__group"><a href="calendar.php" class="menu__link">Reservations</a></li>
+                <li class="menu__group"><a href="accommodations.php" class="menu__link">Accommodations</a></li>
                 <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
             </ul>
         </nav>
     </div>
 </div>
+<!---->
 <br> <br> <br> <br> <br> <br>
 <div class="flex">
     <div class="card">

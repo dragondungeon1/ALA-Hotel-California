@@ -312,6 +312,18 @@ img {vertical-align: middle;}
     transition: 0.3s;
 }
 
+.img-test{
+    /*display: flex;*/
+    width: 10px;
+    height: 10px;
+}
+
+.img-test{
+    /*display: flex;*/
+    width: 100px;
+    height: 60px;
+}
+
 .center{
     display: flex;
     justify-content: center;
@@ -348,3 +360,6 @@ img {vertical-align: middle;}
     background-color: black;
     color: white;
 }
+
+
+
