@@ -4,10 +4,10 @@
 session_start();
 
 $config = [
-    'dsn' => 'mysql',
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => null
+    'dsn' => '',
+    'host' => '',
+    'username' => '',
+    'password' =>
 ];
 
 //$connection = new PDO();
