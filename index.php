@@ -10,6 +10,7 @@
 
     <title>Hotel Cali</title>
 </head>
+<!--navbar-->
 <body class="bg">
 <div>
     <nav class="menu">
@@ -28,7 +29,7 @@
 </div>
 <br>
 <div>
-
+<!--slideshow-->
     <div class="slideshow-container">
 
         <div class="mySlides fade">

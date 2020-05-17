@@ -31,7 +31,7 @@
 <div class="flex">
     <div class="card">
         <img class="one_img" src="img/kamer1.jpg" alt="Denim Jeans" style="width:100%">
-        <h1>Room 1</h1>
+        <h1>Family XL</h1>
         <p class="price">$150 the night</p>
         <p>This is a 2 bed bedroom with a shower, TV, free wifi and a balcony .</p>
         <p><button class="button-primary" style="width: 95%;">Book room</button></p>
@@ -39,7 +39,7 @@
 
     <div class="card">
         <img class="one_img" src="img/kamer2.jpg" alt="Denim Jeans" style="width:100%">
-        <h1>Room 2</h1>
+        <h1>Single</h1>
         <p class="price">$120 the night</p>
         <p></p>
         <p><button class="button-primary" style="width: 95%;">Book room</button></p>
@@ -47,7 +47,7 @@
 
     <div class="card">
         <img class="one_img" src="img/kamer3.jpg" alt="Denim Jeans" style="width:100%">
-        <h1>Room 3</h1>
+        <h1>Double room</h1>
         <p class="price">$100 the night</p>
         <p></p>
         <p><button class="button-primary" style="width: 95%;">Book room</button></p>
