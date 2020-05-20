@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-
     <title>Hotel Cali</title>
 </head>
 <!--navbar-->
@@ -73,7 +72,7 @@
         <button class="button-warning"><a href="rooms.php">Book now a room</a></button>
     </div>
     <br>
-
+<!--dots under slideshow-->
     <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
