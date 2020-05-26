@@ -7,6 +7,6 @@ function getCategorie($catid, $conn){
     $stmt->execute();
 
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
-        echo $prodRow['naam'] . "<br>";
+        echo $prodRow['naam'] . $prodRow['img'] . "<br>";
     };
 }
