@@ -23,12 +23,7 @@
         </ul>
     </nav>
 </div>
-<!--<div class="flex">-->
-<!--    <div class="card">-->
-<!--        <img class="one_img" src="../img/kamer1.jpg" alt="room 1" style="width:100%">-->
-<!--        <h1>Family XL</h1>-->
-<!--        <p class="price">$150 the night</p>-->
-<!--        <p>This is a 2 bed bedroom with a shower, TV, free wifi and a balcony .</p>-->
+
 
         <?php
 
@@ -39,15 +34,29 @@
 
 
         foreach ($catResults as $catResult){
-            echo ' <a  href="viewcat.php?id=" <button class="button-primary buiten">' . $catResult['id'] . $catResult['naam'] .   "</a></b><br></button> ";
+
 //    SELECT * FROM product where categorie_id = $catResult['id'];
             $stmt = $conn->prepare('SELECT * FROM product where categorie_id = :cat_id');
             $stmt->bindParam('cat_id', $catResult['id'], PDO::PARAM_INT);
             $stmt->execute();
 
             while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
-                echo $prodRow['naam'] . "<br>";
+
             }
+            echo '<br>';
+            echo '<div class="row">';
+            echo '<div class="column">';
+            echo '<div class="card">';
+            echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img
+            echo '<div class="container">';
+            echo "<h3>" . $catResult["naam"] ."</h3>";
+            echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";
+            echo "<p>Description:</p>"  . $catResult['beschrijving'] . "<br>"  ;
+
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '';
 
 
 
