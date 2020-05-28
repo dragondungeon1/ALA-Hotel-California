@@ -37,14 +37,20 @@ $catResults = $conn ->query($catQuery);
      $stmt->execute();
 
      ?>
-    <div class="flex">
-    <div class="card101">
-        <?php echo "<img class='foto-card flex' src='/Hotel/" . $catResult["img"] . "' />"; ?>
-        <?php echo $catResult['naam'] . '<br> <br>' ; ?>
-        <?php echo $catResult['beschrijving'] . '<br>'; ?>
-        <?php echo '<a  href="viewcat.php?id=" <button class="button-primary" >' . $catResult['naam']  . "</a></b><br></button> "; ?>
-    </div>
-    </div>
+
+
+
+
+
+     <div class="flex">
+         <div class="card">
+             <img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
+             <?php echo $catResult['naam'] . '<br> <br>' ; ?>
+             <?php echo $catResult['beschrijving'] . '<br>'; ?>
+             <a  href="viewcat.php?id=" <button class="button-primary" > <?php echo  $catResult['naam'] ?>  </a></b><br></button>
+         </div>
+     </div>
+
     <?php
 
  }
