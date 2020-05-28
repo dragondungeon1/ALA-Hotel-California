@@ -25,40 +25,90 @@
 </div>
 
 
-        <?php
+<?php
+require_once 'functions.php';
 
-        require_once "functions.php";
+$catQuery = "SELECT * FROM categorie ";
+$catResults = $conn ->query($catQuery);
 
-        $catQuery = "SELECT * FROM categorie";
-        $catResults = $conn ->query($catQuery);
+ foreach ($catResults as $catResult){
+     $stmt = $conn->prepare('SELECT * FROM product where categorie_id = :cat_id');
+     $stmt->bindParam('cat_id', $catResult['id'], PDO::PARAM_INT);
+     $stmt->execute();
 
+     ?>
 
-        foreach ($catResults as $catResult){
+    <div class="card101">
+        <?php echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />"; ?>
+        <?php echo $catResult['naam'] . '<br> <br>' ; ?>
+        <?php echo $catResult['beschrijving'] . '<br>'; ?>
+        <?php echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> "; ?>
 
-//    SELECT * FROM product where categorie_id = $catResult['id'];
-            $stmt = $conn->prepare('SELECT * FROM product where categorie_id = :cat_id');
-            $stmt->bindParam('cat_id', $catResult['id'], PDO::PARAM_INT);
-            $stmt->execute();
+    </div>
+    <?php
 
-            while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
-
-            }
-
-
-            echo '<div class="card101">';
-            echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img-->
-            echo "<h3>" . $catResult["naam"] ."</h3>";
-            echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";
-            echo "<p>Description:</p>"  . $catResult['beschrijving'] . "<br>"  ;
-            echo '</div>';
-
-        }
+ }
 
 
-        ?>
+
+
+?>
+
 </body>
 </html>
 
+
+
+
+
+
+
+
+<!--echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img-->
+<!--echo -->
+<!--echo -->
+<!--echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--this is a mess-->
+
+<!--echo '<div class="card101">';-->
+<!--    echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img-->
+<!--    echo "<h3>" . $catResult["naam"] ."</h3>";-->
+<!--    echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";-->
+<!--    echo "<p>Description:</p>"  . $catResult['beschrijving'] . "<br>"  ;-->
+<!--    echo '</div>';-->
 
 <!--    <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">-->
 <!--    <h1>Tailored Jeans</h1>-->

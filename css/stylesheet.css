@@ -380,23 +380,6 @@ img {vertical-align: middle;}
 
 }
 
-
-.button-primary2 {
-    background-color: royalblue; /* blue */
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s
-}
-
-
 /* Three columns side by side */
 .column {
     text-align: center;
@@ -449,7 +432,7 @@ img {vertical-align: middle;}
 .card101 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
-    /*margin: auto;*/
+    margin: auto;
     text-align: center;
     font-family: Montserrat, sans-serif;
     display: flex;
@@ -465,6 +448,11 @@ img {vertical-align: middle;}
 
 
 .test123{
+    display: flex;
+    justify-content: space-between;
+}
+
+.kkr{
     display: flex;
     justify-content: space-between;
 }
