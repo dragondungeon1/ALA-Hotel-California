@@ -37,27 +37,16 @@ $catResults = $conn ->query($catQuery);
      $stmt->execute();
 
      ?>
-
-
-
-
-
-     <div class="flex">
-         <div class="card">
+     <div class="flex101">
+         <div class="card101">
              <img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
              <?php echo $catResult['naam'] . '<br> <br>' ; ?>
              <?php echo $catResult['beschrijving'] . '<br>'; ?>
              <a  href="viewcat.php?id=" <button class="button-primary" > <?php echo  $catResult['naam'] ?>  </a></b><br></button>
          </div>
      </div>
-
     <?php
-
  }
-
-
-
-
 ?>
 
 </body>
@@ -70,10 +59,6 @@ $catResults = $conn ->query($catQuery);
 
 
 
-<!--echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img-->
-<!--echo -->
-<!--echo -->
-<!--echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";-->
 
 
 
@@ -99,43 +84,3 @@ $catResults = $conn ->query($catQuery);
 
 
 
-
-
-
-
-
-
-
-
-<!--this is a mess-->
-
-<!--echo '<div class="card101">';-->
-<!--    echo "<img class='foto-card' src='/Hotel/" . $catResult["img"] . "' />";  // img-->
-<!--    echo "<h3>" . $catResult["naam"] ."</h3>";-->
-<!--    echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";-->
-<!--    echo "<p>Description:</p>"  . $catResult['beschrijving'] . "<br>"  ;-->
-<!--    echo '</div>';-->
-
-<!--    <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">-->
-<!--    <h1>Tailored Jeans</h1>-->
-<!--    <p class="price">$19.99</p>-->
-<!--    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>-->
-<!--    <p><button>Add to Cart</button></p>-->
-<!--</div>-->
-
-
-
-<!--echo '<br>';-->
-<!--echo '<div class="row">';-->
-<!--    echo '<div class="column">';-->
-<!--        echo '<div class="card">';-->
-<!--
-            echo '<div class="container">';
-                echo "<h3>" . $catResult["naam"] ."</h3>";
-                echo ' <a  href="viewcat.php?id=" <button class="button-primary" >' .  $catResult['naam']  .  "</a></b><br></button> ";
-                echo "<p>Description:</p>"  . $catResult['beschrijving'] . "<br>"  ;
-
-                echo '</div>';
-            echo '</div>';
-        echo '</div>';
-    echo '';
