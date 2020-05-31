@@ -352,6 +352,7 @@ img {vertical-align: middle;}
 .flex{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .one_img{
@@ -399,8 +400,10 @@ img {vertical-align: middle;}
 
 /* test kaart */
 .foto-card{
-    max-width: 300px;
-    min-width: 100px;
+    width: 300px;
+    height: 250px;
+    border-radius: 15px;
+
 }
 
 .card101 {

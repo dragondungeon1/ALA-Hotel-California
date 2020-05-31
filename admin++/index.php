@@ -23,8 +23,10 @@
         </ul>
     </nav>
 </div>
-
-
+<div class="center">
+    <h2>our selection of rooms</h2>
+</div>
+<div class="flex">
 <?php
 require_once 'functions.php';
 
@@ -48,7 +50,7 @@ $catResults = $conn ->query($catQuery);
     <?php
  }
 ?>
-
+</div>
 </body>
 </html>
 
