@@ -410,12 +410,9 @@ img {vertical-align: middle;}
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
-    /*text-align: center;*/
-    display: flex;
-    font-family: Montserrat, sans-serif;
-    /*display: inline-block;*/
+    text-align: center;
+    font-family: arial;
     justify-content: space-between;
-    flex-direction: column ;
 }
 
 .flex101{
