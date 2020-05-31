@@ -14,7 +14,7 @@
 <div>
     <nav class="menu">
         <ul class="menu__list">
-            <img class="img-test" src="../img/grey2.jpg" alt="logo">
+            <img class="img-test" src="../img/logo2.jpg" alt="logo">
             <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
             <li class="menu__group"><a href="../index.php" class="menu__link">Home</a></li>
             <li class="menu__group"><a href="../rooms.php" class="menu__link">Rooms </a></li>
@@ -44,6 +44,7 @@ $catResults = $conn ->query($catQuery);
              <img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
              <?php echo $catResult['naam'] . '<br> <br>' ; ?>
              <?php echo $catResult['beschrijving'] . '<br>'; ?>
+             <?php echo '<h2>' . $catResult['price'] . '</h2>'; ?>
              <a  href="viewcat.php?id=" <button class="button-primary" > <?php echo  $catResult['naam'] ?>  </a></b><br></button>
          </div>
      </div>
