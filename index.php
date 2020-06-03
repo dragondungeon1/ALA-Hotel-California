@@ -11,18 +11,39 @@
 </head>
 <!--navbar-->
 <body class="bg">
-<div>
-    <nav class="menu">
-        <ul class="menu__list">
-            <img class="img-test" src="img/logo2.jpg" alt="logo">
-            <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
-            <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>
-            <li class="menu__group"><a href="rooms.php" class="menu__link">Rooms </a></li>
-            <li class="menu__group"><a href="accommodations.php" class="menu__link">Accommodations</a></li>
-            <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
-        </ul>
-    </nav>
+<span style="font-size:30px;cursor:pointer; text-align: center" onclick="openNav()">&#9776; Navigation</span>
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <img style="width: 100px; height: 100px" src="img/logo2.jpg" alt="">
+        <a href="index.php">Home</a>
+        <a href="admin++/index.php">Rooms</a>
+        <a href="accommodations.php">Accomodations</a>
+        <a href="#">Contact</a>
+    </div>
 </div>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+<!--<div>-->
+<!--    <nav class="menu">-->
+<!--        <ul class="menu__list">-->
+<!--            <img class="img-test" src="img/logo2.jpg" alt="logo">-->
+<!--            <li class="menu__group"><a href="index.php" class="menu__link">Hotel California</a></li>-->
+<!--            <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>-->
+<!--           <li class="menu__group"><a href="admin++/index.php" class="menu__link">Rooms </a></li> the index.php file on this line is for the booking of the rooms-->
+<!--            <li class="menu__group"><a href="accommodations.php" class="menu__link">Accommodations</a></li>-->
+<!--            <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
 <div class="text2">
     <h2>Welcome to Hotel California</h2>
 </div>
@@ -69,7 +90,7 @@
         <a class="prev"  onclick="plusSlides(-1)">&#10094;</a> <a class="next" onclick="plusSlides(1)">&#10095;</a> </div>
     </div>
     <div class="center" >
-        <button class="button-warning"><a href="rooms.php">Book now a room</a></button>
+        <button class="button-warning"><a href="admin++/index.php">Book now a room</a></button>
     </div>
     <br>
 <!--dots under slideshow-->

@@ -8,18 +8,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <div>
-        <nav class="menu">
-            <ul class="menu__list">
-                <img class="img-test" src="../img/logo2.jpg" alt="logo">
-                <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
-                <li class="menu__group"><a href="../index.php" class="menu__link">Home</a></li>
-                <li class="menu__group"><a href="../rooms.php" class="menu__link">Rooms </a></li>
-                <li class="menu__group"><a href="../accommodations.php" class="menu__link">Accommodations</a></li>
-                <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
-            </ul>
-        </nav>
+    <span style="font-size:30px;cursor:pointer; text-align: center" onclick="openNav()">&#9776; Navigation</span>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <img style="width: 100px; height: 100px" src="img/logo2.jpg" alt="">
+            <a href="index.php">Home</a>
+            <a href="admin++/index.php">Rooms</a>
+            <a href="accommodations.php">Accomodations</a>
+            <a href="#">Contact</a>
+        </div>
     </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
 
     <div class="center">
         <h2>Welcome to the Admin Panel. </h2>

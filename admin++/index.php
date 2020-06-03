@@ -11,18 +11,19 @@
 </head>
 <body>
 
-<div>
-    <nav class="menu">
-        <ul class="menu__list">
-            <img class="img-test" src="../img/logo2.jpg" alt="logo">
-            <li class="menu__group"><a href="#" class="menu__link">Hotel California</a></li>
-            <li class="menu__group"><a href="../index.php" class="menu__link">Home</a></li>
-            <li class="menu__group"><a href="../rooms.php" class="menu__link">Rooms </a></li>
-            <li class="menu__group"><a href="../accommodations.php" class="menu__link">Accommodations</a></li>
-            <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>
-        </ul>
-    </nav>
+<span style="font-size:30px;cursor:pointer; text-align: center" onclick="openNav()">&#9776; Navigation</span>
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
+        <a href="../index.php">Home</a>
+        <a href="index.php">Rooms</a>
+        <a href="../accommodations.php">Accomodations</a>
+        <a href="#">Contact</a>
+    </div>
 </div>
+
+
 <div class="center">
     <h2>our selection of rooms</h2>
 </div>
@@ -40,12 +41,13 @@ $catResults = $conn ->query($catQuery);
 
      ?>
      <div class="flex101">
-         <div class="card101">
+         <div class="card101" style="border-radius: 30px; background-color: black; color: white; opacity: 85%">
              <img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
-             <?php echo $catResult['naam'] . '<br> <br>' ; ?>
-             <?php echo $catResult['beschrijving'] . '<br>'; ?>
-             <?php echo '<h2>' . $catResult['price'] . '</h2>'; ?>
-             <a  href="viewcat.php?id=" <button class="button-primary" > <?php echo  $catResult['naam'] ?>  </a></b><br></button>
+             <?php echo '<h2 style="font-family: \'Montserrat\', sans-serif">'. $catResult['naam'] . '</h2>'  ; ?>
+             <?php echo '<h4 style="font-family: \'Montserrat\', sans-serif">' . $catResult['beschrijving'] . '</h4>' ; ?>
+             <?php echo '<h3 style="font-family: \'Montserrat\', sans-serif" >' . $catResult['price'] .  '$ A / night</h3>'; ?>
+             <p>*Prices vary per season</p>
+             <a href="viewcat.php?id=<?php echo  $catResult['id'] ?>">  <button class="button-danger" > book now </button></a>
          </div>
      </div>
     <?php
@@ -55,7 +57,15 @@ $catResults = $conn ->query($catQuery);
 </body>
 </html>
 
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
 
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
 
 
 
