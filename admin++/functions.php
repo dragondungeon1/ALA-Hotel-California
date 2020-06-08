@@ -18,15 +18,16 @@ function getCategorie($catid, $conn){
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
         echo "<b>Room</b> " .  $prodRow['room_number'] . "<br>"
             . $catDetails['img'] . '<br>'
-            . $roomDetails['price'] . "<br>"
-            . $catDetails['beschrijving'] ;
+            . $roomDetails['categorie_id'] . "<br>"
+            . $catDetails['beschrijving'] . "<br>$"
+            . $catDetails['price'];
 
     };
 }
 //<img class='foto-card flex' src='/Hotel/
 /* Room functions */
 function getRoomDetails($roomid, $conn){
-    $stmt = $conn->prepare('SELECT * FROM categorie where room_number = :room_id LIMIT 1'); //producten ophalen op basis van categorie
+    $stmt = $conn->prepare('SELECT * FROM product where room_number = :room_id LIMIT 1'); //producten ophalen op basis van categorie
     $stmt->bindParam(':room_id', $roomid, PDO::PARAM_INT); //$catid toevoegen aan Query
     $stmt->execute(); //Query uitvoeren
 
