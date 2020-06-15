@@ -34,6 +34,7 @@
 </html>
 
 
+<div style="text-align: center">
 
 <?php
 require_once "functions.php";
@@ -52,28 +53,25 @@ function getCategorie($catid, $conn){
     $roomDetails = getRoomDetails($catid, $conn);
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
         echo "<b>Room</b> " .  $prodRow['room_number'] . "<br>"
-            . "<img class='foto-card flex' src='.../Hotel/' "  . $catDetails['img'] . '<br>'
+            . "<img  style='justify-content:center;' src='/Hotel/img' "  . $catDetails['img'] . '<br>'
             . $roomDetails['categorie_id'] . "<br>"
             . $catDetails['beschrijving'] . "<br>$"
             . $catDetails['price'];
         ?>
-
         <div>
             <form id="<?=$prodRow['room_number'];?>" method="post" action="book.php">
                 <label for="start_date">Select a start date:</label>
-                <input type="date" id="start_date" name="start_date">
+                <input type="date" id="start_date" name="start_date"> <br>
                 <label for="end_date">Select an end date:</label>
                 <input type="date" id="end_date" name="end_date">
-                <input type="hidden" name="room" value="<?=$prodRow['room_number'];?>">
-                <input class="" type="submit">
+                <input type="hidden" name="room" value="<?=$prodRow['room_number'];?>"> <br>
+                <input  class="button-warning" type="submit" value="Book now">
             </form>
         </div>
-
-
         <?php
 
     }
 }
 ?>
+</div>
 
-<!--<h1>Show a  Control</h1>-->
