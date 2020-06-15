@@ -9,21 +9,9 @@ function getCategorieDetails($catid, $conn){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function getCategorie($catid, $conn){
-    $stmt = $conn->prepare('SELECT * FROM product where categorie_id = :cat_id');
-    $stmt->bindParam(':cat_id', $catid, PDO::PARAM_INT);
-    $stmt->execute();
-    $catDetails = getCategorieDetails($catid, $conn);
-    $roomDetails = getRoomDetails($catid, $conn);
-    while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
-        echo "<b>Room</b> " .  $prodRow['room_number'] . "<br>"
-            . $catDetails['img'] . '<br>'
-            . $roomDetails['categorie_id'] . "<br>"
-            . $catDetails['beschrijving'] . "<br>$"
-            . $catDetails['price'];
 
-    };
-}
+
+
 //<img class='foto-card flex' src='/Hotel/
 /* Room functions */
 function getRoomDetails($roomid, $conn){

@@ -8,7 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <span style="font-size:30px;cursor:pointer; text-align: center" onclick="openNav()">&#9776; Navigation</span>
+
+</head>
+
+
+<span style="font-size:30px;cursor:pointer; text-align: center" onclick="openNav()">&#9776; Navigation</span>
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
@@ -50,7 +54,7 @@
         <div class="card" style="border-radius: 10px; background-color: ">
             <h1>Room plan</h1>
             <p class="price">Locations of the rooms</p>
-            <p><button class="button-danger" style="width: 95%;">Map</button></p>
+            <p><a href="plan.php"> <button class="button-danger" style="width: 95%;">Map</button></a></p>
         </div>
 
         <div class="card" style="border-radius: 10px; background-color: ">

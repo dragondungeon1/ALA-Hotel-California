@@ -384,7 +384,10 @@ img {vertical-align: middle;}
         right: 35px;
     }
 }
-
+.photo{
+    width: 500px;
+    height: 500px;
+}
 
 
 
