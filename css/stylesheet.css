@@ -132,9 +132,12 @@ img {vertical-align: middle;}
 
 .text2{
     text-align: center;
-    color: black;
+    color: white;
     font-family: Montserrat, 'Montserrat', sans-serif;
-
+    background-color: black;
+    border-radius: 20px;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 /*!* for the buttons i may use.*/
@@ -267,8 +270,30 @@ img {vertical-align: middle;}
 .TB{
     background-color: black;
     color: white;
+
+
 }
 
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+
+.blackme{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    list-style-type: none;
+    text-align: center;
+
+}
 /*
 ------------------------|
   admin++/index.php *   |

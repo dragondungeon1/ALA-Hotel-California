@@ -39,7 +39,6 @@
 <?php
 require_once "functions.php";
 
-echo "<a href='index.php'>    << Go back</a> <br> <br>";
 
 if (isset($_GET['id'])){
     getCategorie($_GET['id'], $conn);
@@ -53,7 +52,7 @@ function getCategorie($catid, $conn){
     $roomDetails = getRoomDetails($catid, $conn);
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
         echo "<b>Room</b> " .  $prodRow['room_number'] . "<br>"
-            . "<img  style='justify-content:center;' src='/Hotel/img' "  . $catDetails['img'] . '<br>'
+            . "<img  style='text-align:center;' src='/hotel/' "  . $catDetails['img'] . '<br>'
             . $roomDetails['categorie_id'] . "<br>"
             . $catDetails['beschrijving'] . "<br>$"
             . $catDetails['price'];
@@ -68,6 +67,9 @@ function getCategorie($catid, $conn){
                 <input  class="button-warning" type="submit" value="Book now">
             </form>
         </div>
+
+
+
         <?php
 
     }
@@ -75,3 +77,4 @@ function getCategorie($catid, $conn){
 ?>
 </div>
 
+<img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />

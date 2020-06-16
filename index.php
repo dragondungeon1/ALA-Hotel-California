@@ -44,7 +44,9 @@
 <!--        </ul>-->
 <!--    </nav>-->
 <!--</div>-->
-<div class="text2">
+
+<br>
+<div class="text2" style="opacity: 80%">
     <h2>Welcome to Hotel California</h2>
 </div>
 <br>
@@ -155,7 +157,7 @@
     </script>
 
 <br>
-<div class="TB">
+<div class="TB" style="border-radius: 40px; margin-right: 30px; margin-left: 30px; opacity: 90%;">
     <blockquote style="padding: 1px">
         <h2>Are you looking for ultimate relaxation?</h2>
         <h3>Well than you are on the right adress! Hotel California is one <br>
@@ -167,7 +169,32 @@
     </blockquote>
 
 </div>
+<div  style="text-align: right" >
+    <blockquote>
+        <h2>Special vacations for everyone!</h2>
+        <h3>
+            No one is too old to make some fun or to relax, try our new sauna. <br>
+            Or for instance try out our new waterslide with a length of 20M! <br>
+            For the really young kids we have an kid amusement team that takes <br>
+            the children on a nice trip through the hotel with some activities <br>
+            If you are interested we offer an jet-ski trip of 2,5 hours around <br>
+            the west coast where we later take some pictures of course
+
+        </h3>
+    </blockquote>
 </div>
+
+<footer style="margin-bottom: 20px">
+<div class="blackme">
+    <div style="margin-left: 30px">
+        <li> Contact </li>
+        <li> Phone: +31 6 12 34 56 78</li>
+        <li> Mail: info.hotelcalifornia@gmail.com</li>
+        <li> Location: Amerika</li>
+    </div>
+
+</div>
+</footer>
 </body>
 </html>
 
