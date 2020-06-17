@@ -51,11 +51,12 @@ function getCategorie($catid, $conn){
     $catDetails = getCategorieDetails($catid, $conn);
     $roomDetails = getRoomDetails($catid, $conn);
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
-        echo "<b>Room</b> " .  $prodRow['room_number'] . "<br>"
+        echo "<b> " .  $catDetails['naam'] . "<br></b>"
             . "<img  style='text-align:center;' src='/hotel/' "  . $catDetails['img'] . '<br>'
             . $roomDetails['categorie_id'] . "<br>"
             . $catDetails['beschrijving'] . "<br>$"
-            . $catDetails['price'];
+            . $catDetails['price'] . "<br>"
+            . $catDetails['naam']  ;
         ?>
         <div>
             <form id="<?=$prodRow['room_number'];?>" method="post" action="book.php">

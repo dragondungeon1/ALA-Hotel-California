@@ -41,7 +41,7 @@ $roomDetails = getRoomDetails($_POST['room'], $conn);
 $catDetail = getCategorieDetails($roomDetails['categorie_id'] ,$conn);
 ?>
 
-<h1>Book now room number <?=$roomDetails['room_number']?> </h1>
+<h1>  <?=$catDetail['naam']?> </h1>
     <br>
 
 <?php
@@ -58,13 +58,6 @@ while($seasonRow = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 ?>
 <div>
-    <h2>calculate the price you have to pay</h2>
-    <input type="number" id="days" name="days" placeholder="days" /><br /><br />
-</div>
-
-    <script></script>
-
-<div>
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -74,7 +67,9 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
-if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['datum'])&& isset($_POST['edatum'])){
+if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['start_date'])&& isset($_POST['end_date'])){//je checkt hier of ze bestaan, niet of bijvoorbeeld het email klopt en de datums bestaan en de datums achtereenvolgend zijn
+    //check datum, seizoen en gegevens etc... Zoek controle functies op in google
+    //kamer beschikbaar???
     /* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
     $mail = new PHPMailer(TRUE);
 
@@ -99,14 +94,21 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['datu
         $mail->Subject = 'Hotel confirmation email';
 
         /* Set the mail message body. */
-        $mail->Body = 'Dear customer, You have made an reservation for:' . $_POST['datum'] . ' till ' . $_POST['edatum']
-            . ' Under the name:' . $_POST['emailtoname'] . $_POST['emailtolname'] . $_POST['lastname']
+        $mail->Body = 'Dear customer, You have made an reservation for:' . $_POST['start_date'] . ' till ' . $_POST['end_date']
+            . ' Under the name:' . $_POST['emailtoname'] . ' ' . $_POST['lastname']
             . ' Your home adress:' .$_POST['adress']
             . ' Your city: ' . $_POST['city']
-            . ' Your country:' . $_POST['country'];
+            . ' Your country:' . $_POST['country']
+            . ' The categorie you have chosen from is: ' .$catDetail['naam'];
 
         /* Finally send the mail. */
         $mail->send();
+//        $stmt = $conn->prepare('SELECT * FROM categorie where id = :cat_id')
+        $stmt = $conn ->prepare('INSERT INTO guests(firstname, lastname, email, roomnumber, roomcategorie) VALUES (:firstname, :lastname, :email, :roomnumber, :roomcategorie)') ;
+        $firstname = $_POST['emailtoname'];
+        $lastname = $_POST['lastname'] ;
+        $email = $_POST['emailto'];
+        $roomcategorie = $catDetail['naam'];
     }
     catch (Exception $e)
     {
@@ -122,11 +124,15 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['datu
     ?>
 <!--    <h1>Boek hotel</h1>-->
     <form method="post">
-        <label for="datum">Start date</label><br />
-        <input type="date" id="datum" name="datum" /><br /><br />
+        <label>Start date:  <?= htmlspecialchars($_POST['start_date']);  ?></label><br />
+         <label>End date:  <?= htmlspecialchars($_POST['end_date']);  ?></label><br />
+        <input type="hidden" id="sdatum" value=" <?= htmlspecialchars($_POST['start_date']);  ?>" name="start_date" /><br /><br />
 
-        <label for="edatum">End Date</label><br />
-        <input type="date" id="edatum" name="edatum" /><br /><br />
+        <input type="hidden" id="edatum" value="<?= htmlspecialchars($_POST['end_date']); ///todo: juiste datum format ?>" name="end_date" /><br /><br />
+
+
+        <input type="hidden" value="<?= htmlspecialchars($_POST['room']); ///todo: juiste datum format ?>" name="room" /><br /><br />
+
 
         <label for="emailto">Enter your email</label><br />
         <input type="email" id="emailto" name="emailto" placeholder="example@demo.nl" /><br /><br />
