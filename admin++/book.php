@@ -112,7 +112,7 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
         ];
 
 //        $stmt = $conn->prepare('SELECT * FROM categorie where id = :cat_id')
-        $sql = 'INSERT INTO guests (firstname, lastname, email, roomnumber, roomcategorie) VALUES (:firstname, :lastname, :email, :roomnumber, :roomcategorie)' ;
+        $sql = 'INSERT INTO guests (firstname, lastname, email, , roomcategorie) VALUES (:firstname, :lastname, :email, :roomcategorie)' ;
         $stmt = $conn->prepare($sql);
         $stmt->execute($data);
 
