@@ -108,11 +108,17 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
             'firstname' =>$_POST['emailtoname'],
             'lastname' =>$_POST['lastname'],
             'email' =>$_POST['emailto'],
-            'roomcategorie' =>$catDetail['naam']
+            'roomcategorie' =>$catDetail['naam'],
+            'roomnumber'=>$roomDetails['categorie_id'],
+            'phone'=> $_POST['tel'],
+            'city'=> $_POST['city'],
+            'homeadress'=>$_POST['adress'],
+            'country'=>$_POST['country']
         ];
 
 //        $stmt = $conn->prepare('SELECT * FROM categorie where id = :cat_id')
-        $sql = 'INSERT INTO guests (firstname, lastname, email, , roomcategorie) VALUES (:firstname, :lastname, :email, :roomcategorie)' ;
+        $sql = 'INSERT INTO guests (firstname, lastname, email,roomnumber , roomcategorie, phone, homeadress, city, country) 
+                VALUES (:firstname, :lastname, :email,:roomnumber, :roomcategorie,:phone, :homeadress, :city, :country)' ;
         $stmt = $conn->prepare($sql);
         $stmt->execute($data);
 
