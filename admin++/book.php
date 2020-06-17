@@ -103,12 +103,22 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
 
         /* Finally send the mail. */
         $mail->send();
+
+        $data = [
+            'firstname' =>$_POST['emailtoname'],
+            'lastname' =>$_POST['lastname'],
+            'email' =>$_POST['emailto'],
+            'roomcategorie' =>$catDetail['naam']
+        ];
+
 //        $stmt = $conn->prepare('SELECT * FROM categorie where id = :cat_id')
-        $stmt = $conn ->prepare('INSERT INTO guests(firstname, lastname, email, roomnumber, roomcategorie) VALUES (:firstname, :lastname, :email, :roomnumber, :roomcategorie)') ;
-        $firstname = $_POST['emailtoname'];
-        $lastname = $_POST['lastname'] ;
-        $email = $_POST['emailto'];
-        $roomcategorie = $catDetail['naam'];
+        $sql = 'INSERT INTO guests (firstname, lastname, email, roomnumber, roomcategorie) VALUES (:firstname, :lastname, :email, :roomnumber, :roomcategorie)' ;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($data);
+
+
+
+
     }
     catch (Exception $e)
     {
