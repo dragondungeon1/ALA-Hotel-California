@@ -103,7 +103,7 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
 
         /* Finally send the mail. */
         $mail->send();
-
+//data will be placed in the database :D
         $data = [
             'firstname' =>$_POST['emailtoname'],
             'lastname' =>$_POST['lastname'],
