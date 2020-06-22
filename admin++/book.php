@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
     <title>Booking</title>
 </head>
 <body>
@@ -17,8 +19,8 @@
         <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
         <a href="../index.php">Home</a>
         <a href="index.php">Rooms</a>
-        <a href="../accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="../accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 </div>
 <script>
@@ -31,7 +33,7 @@
     }
 </script>
 </body>
-</html>
+
 <div style="text-align: center">
 <?php
 
@@ -40,8 +42,34 @@ require_once "functions.php";
 $roomDetails = getRoomDetails($_POST['room'], $conn);
 $catDetail = getCategorieDetails($roomDetails['categorie_id'] ,$conn);
 ?>
+    <div class="text-fixer">
+        <h1 class="ml9" >
+  <span class="text-wrapper" >
+    <span class="letters"><?=$catDetail['naam']?></span>
+  </span>
+        </h1>
+    </div>
 
-<h1>  <?=$catDetail['naam']?> </h1>
+    <script>
+        // Wrap every letter in a span
+        var textWrapper = document.querySelector('.ml9 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml9 .letter',
+                scale: [0, 1],
+                duration: 1500,
+                elasticity: 600,
+                delay: (el, i) => 45 * (i+1)
+            }).add({
+            targets: '.ml9',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+    </script>
     <br>
 
 <?php
@@ -113,19 +141,18 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
             'phone'=> $_POST['tel'],
             'city'=> $_POST['city'],
             'homeadress'=>$_POST['adress'],
-            'country'=>$_POST['country']
+            'country'=>$_POST['country'],
+            'startdate'=>$_POST['start_date'],
+            'enddate'=>$_POST['end_date']
         ];
 
 //        $stmt = $conn->prepare('SELECT * FROM categorie where id = :cat_id')
-        $sql = 'INSERT INTO guests (firstname, lastname, email,roomnumber , roomcategorie, phone, homeadress, city, country) 
-                VALUES (:firstname, :lastname, :email,:roomnumber, :roomcategorie,:phone, :homeadress, :city, :country)' ;
+        $sql = 'INSERT INTO guests (firstname, lastname, email,roomnumber , roomcategorie, phone, homeadress, city, country,startdate,enddate) 
+                VALUES (:firstname, :lastname, :email,:roomnumber, :roomcategorie,:phone, :homeadress, :city, :country, :startdate, :enddate)' ;
         $stmt = $conn->prepare($sql);
         $stmt->execute($data);
-
-
-
-
     }
+
     catch (Exception $e)
     {
         /* PHPMailer exception. */
@@ -138,16 +165,17 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
     }
 }else{
     ?>
-<!--    <h1>Boek hotel</h1>-->
+
+
     <form method="post">
         <label>Start date:  <?= htmlspecialchars($_POST['start_date']);  ?></label><br />
          <label>End date:  <?= htmlspecialchars($_POST['end_date']);  ?></label><br />
-        <input type="hidden" id="sdatum" value=" <?= htmlspecialchars($_POST['start_date']);  ?>" name="start_date" /><br /><br />
+        <input type="hidden" id="sdatum" value=" <?= htmlspecialchars($_POST['start_date']);  ?>" name="start_date" /><br />
 
-        <input type="hidden" id="edatum" value="<?= htmlspecialchars($_POST['end_date']); ///todo: juiste datum format ?>" name="end_date" /><br /><br />
+        <input type="hidden" id="edatum" value="<?= htmlspecialchars($_POST['end_date']); ///todo: juiste datum format ?>" name="end_date"/>
 
 
-        <input type="hidden" value="<?= htmlspecialchars($_POST['room']); ///todo: juiste datum format ?>" name="room" /><br /><br />
+        <input type="hidden" value="<?= htmlspecialchars($_POST['room']); ///todo: juiste datum format ?>" name="room"/>
 
 
         <label for="emailto">Enter your email</label><br />
@@ -185,7 +213,18 @@ if(isset($_POST['emailto']) && isset($_POST['emailtoname'])&& isset($_POST['star
 
         <input  type="submit"  value="Verstuur bevestiging"/>
     </form>
+
+    <br>
     <?php
 }
 ?>
 </div>
+    <footer style="margin-bottom: 20px">
+        <div class="blackme">
+            <div style="margin-left: 30px">
+                <li> Contact </li>
+                <li> Phone: +31 6 12 34 56 78</li>
+                <li> Mail: info.hotelcalifornia@gmail.com</li>
+                <li> Location: Amerika</li>
+            </div>
+</html>

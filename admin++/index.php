@@ -18,8 +18,8 @@
         <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
         <a href="../index.php">Home</a>
         <a href="index.php">Rooms</a>
-        <a href="../accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="../accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 </div>
 
@@ -41,13 +41,13 @@ $catResults = $conn ->query($catQuery);
 
      ?>
      <div class="flex101">
-         <div class="card101" style="border-radius: 30px; background-color: black; color: white; opacity: 85%">
+         <div class="card101" style="border-radius: 30px; background-color: #000070; color: white; opacity: 85%">
              <img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
              <?php echo '<h2 style="font-family: \'Montserrat\', sans-serif">'. $catResult['naam'] . '</h2>'  ; ?>
              <?php echo '<h4 style="font-family: \'Montserrat\', sans-serif">' . $catResult['beschrijving'] . '</h4>' ; ?>
              <?php echo '<h3 style="font-family: \'Montserrat\', sans-serif" >' . $catResult['price'] .  '$ A / night</h3>'; ?>
              <p>*Prices vary per season</p>
-             <a href="viewcat.php?id=<?php echo  $catResult['id'] ?>">  <button class="button-danger" > book now </button></a>
+             <a href="viewcat.php?id=<?php echo  $catResult['id'] ?>">  <button class="button-primary" > book now </button></a>
          </div>
      </div>
     <?php

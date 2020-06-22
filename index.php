@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <title>Hotel Cali</title>
 </head>
 <!--navbar-->
@@ -18,8 +19,8 @@
         <img style="width: 100px; height: 100px" src="img/logo2.jpg" alt="">
         <a href="index.php">Home</a>
         <a href="admin++/index.php">Rooms</a>
-        <a href="accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 </div>
 
@@ -32,23 +33,38 @@
         document.getElementById("myNav").style.height = "0%";
     }
 </script>
-<!--<div>-->
-<!--    <nav class="menu">-->
-<!--        <ul class="menu__list">-->
-<!--            <img class="img-test" src="img/logo2.jpg" alt="logo">-->
-<!--            <li class="menu__group"><a href="index.php" class="menu__link">Hotel California</a></li>-->
-<!--            <li class="menu__group"><a href="index.php" class="menu__link">Home</a></li>-->
-<!--           <li class="menu__group"><a href="admin++/index.php" class="menu__link">Rooms </a></li> the index.php file on this line is for the booking of the rooms-->
-<!--            <li class="menu__group"><a href="accommodations.php" class="menu__link">Accommodations</a></li>-->
-<!--            <li class="menu__group"><a href="#" class="menu__link">Locations</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
-<!--</div>-->
-
 <br>
-<div class="text2" style="opacity: 80%">
-    <h2>Welcome to Hotel California</h2>
+<div class="text-fixer">
+    <h1 class="ml9" >
+  <span class="text-wrapper" >
+    <span class="letters">Hotel California</span>
+  </span>
+    </h1>
 </div>
+
+<script>
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml9 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({loop: true})
+        .add({
+            targets: '.ml9 .letter',
+            scale: [0, 1],
+            duration: 1500,
+            elasticity: 600,
+            delay: (el, i) => 45 * (i+1)
+        }).add({
+        targets: '.ml9',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+    });
+</script>
+<!--<div class="text2" style="opacity: %">-->
+<!--    <h2>Welcome to Hotel California</h2>-->
+<!--</div>-->
 <br>
 <div>
 <!--slideshow-->
@@ -157,8 +173,10 @@
     </script>
 
 <br>
-<div class="TB" style="border-radius: 40px; margin-right: 30px; margin-left: 30px; opacity: 90%;">
-    <blockquote style="padding: 1px">
+
+<!--top left-->
+<div class="TB" style="border-radius: 40px; margin-right: 30px; margin-left:30px; opacity: 90%; width: 900px">
+    <blockquote>
         <h2>Are you looking for ultimate relaxation?</h2>
         <h3>Well than you are on the right adress! Hotel California is one <br>
             of the biggest and best hotels you can get. We have a <br>
@@ -166,24 +184,25 @@
             we have a smoking hot sauna that you can use. And if that isn't <br>
             enough you can always order room service when you are hungry or <br>
             hungover of course </h3>
-    </blockquote>
 
+    </blockquote>
 </div>
-<div  style="text-align: right" >
+
+<div class="TB right"  style="border-radius: 40px; width: 900px"   >
     <blockquote>
         <h2>Special vacations for everyone!</h2>
-        <h3>
-            No one is too old to make some fun or to relax, try our new sauna. <br>
+        <h3>No one is too old to make some fun or to relax, try our new sauna. <br>
             Or for instance try out our new waterslide with a length of 20M! <br>
             For the really young kids we have an kid amusement team that takes <br>
             the children on a nice trip through the hotel with some activities <br>
             If you are interested we offer an jet-ski trip of 2,5 hours around <br>
-            the west coast where we later take some pictures of course
-
+            the west coast where we later take some pictures of course <br> <br>
         </h3>
     </blockquote>
 </div>
 
+
+</div>
 <footer style="margin-bottom: 20px">
 <div class="blackme">
     <div style="margin-left: 30px">
@@ -194,6 +213,7 @@
     </div>
 
 </div>
+
 </footer>
 </body>
 </html>

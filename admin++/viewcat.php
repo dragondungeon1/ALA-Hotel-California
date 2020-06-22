@@ -17,8 +17,8 @@
         <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
         <a href="../index.php">Home</a>
         <a href="index.php">Rooms</a>
-        <a href="../accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="../accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 </div>
 <script>
@@ -42,6 +42,7 @@ require_once "functions.php";
 
 if (isset($_GET['id'])){
     getCategorie($_GET['id'], $conn);
+    $catDetails = getCategorieDetails($_GET['id'], $conn);
 echo '<br> <br> <br>';
 }
 function getCategorie($catid, $conn){
@@ -52,7 +53,6 @@ function getCategorie($catid, $conn){
     $roomDetails = getRoomDetails($catid, $conn);
     while ($prodRow = $stmt->fetch(PDO::FETCH_ASSOC)){
         echo "<b> " .  $catDetails['naam'] . "<br></b>"
-            . "<img  style='text-align:center;' src='/hotel/' "  . $catDetails['img'] . '<br>'
             . $roomDetails['categorie_id'] . "<br>"
             . $catDetails['beschrijving'] . "<br>$"
             . $catDetails['price'] . "<br>"
@@ -77,5 +77,84 @@ function getCategorie($catid, $conn){
 }
 ?>
 </div>
+<!--<div class="viewcat">-->
+<!--    <img src='/Hotel/--><?php //echo $catDetails["img"] ?><!--' />-->
+<!--</div>-->
+<div class="slideshow-container">
 
-<img class='foto-card flex' src='/Hotel/<?php echo $catResult["img"] ?>' />
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 6</div>
+        <img class="kamer" src="/Hotel/<?php echo $catDetails["img"] ?>" style="width:100%">
+        <div class="text">Bedroom</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img class="kamer" src="../img/bathroom.jpg" style="width:100%">
+        <div class="text">bathroom</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img class="kamer" src="../img/seasight2.jpg" style="width:100%">
+        <div class="text">Seasight from your balcony</div>
+    </div>
+    <a class="prev"  onclick="plusSlides(-1)">&#10094;</a> <a class="next" onclick="plusSlides(1)">&#10095;</a> </div>
+
+</div>
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+    var slides,dots;
+
+    function showSlides() {
+        var i;
+        slides = document.getElementsByClassName("mySlides");
+        dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex> slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 8000); // Change image every 8 seconds
+    }
+
+    function plusSlides(position) {
+        slideIndex +=position;
+        if (slideIndex> slides.length) {slideIndex = 1}
+        else if(slideIndex<1){slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+
+    function currentSlide(index) {
+        if (index> slides.length) {index = 1}
+        else if(index<1){index = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[index-1].style.display = "block";
+        dots[index-1].className += " active";
+    }
+</script>

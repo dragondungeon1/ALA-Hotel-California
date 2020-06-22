@@ -14,11 +14,11 @@
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-        <img style="width: 100px; height: 100px" src="img/logo2.jpg" alt="">
+        <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
         <a href="../index.php">Home</a>
         <a href= "index.php">Rooms</a>
-        <a href="accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 
 
@@ -67,31 +67,19 @@
 <!---->
 <!--</div>-->
 <!--<br> <br> <br> <br> <br> <br> <br> <br> <br><br><br><br><br> <br><br><br><br>-->
+
 <?php
 require_once "functions.php";
 require_once "DB.php";
-?>
 
-<?php
 $stmt = $conn->prepare("SELECT * FROM guests");
 $stmt->execute([]);
-$data = $stmt->fetchAll();
-// and somewhere later:
-foreach ($data as $row) {
+$guests = $stmt->fetchAll();
 
-    echo $row['id'] . '<br>';
-    echo $row['firstname'].$row['lastname'] . "<br>";
-    echo $row['email'] . "<br>";
-    echo $row['roomnumber'] . "<br>";
-    echo $row['roomcategorie'] . "<br>";
-    echo $row['phone'] . "<br>";
-    echo $row['homeadress'] . "<br>";
-    echo $row['city'] . "<br>";
-    echo $row['country'] . "<br>";
-
-
-}
 ?>
+<div>
+
+
 <table>
     <tr>
         <th>id</th>
@@ -104,56 +92,33 @@ foreach ($data as $row) {
         <th>Home adress</th>
         <th>City</th>
         <th>Country</th>
+        <th>Start date</th>
+        <th>End date</th>
     </tr>
-<!--    id-->
+
+
+
+        <?php foreach ($guests as $guest) :  ?>
     <tr>
-        <td> <?= $row['id'] ?></td>
-        <td><?= $row['firstname'] ?></td>
-        <td><?= $row['lastname'] ?></td>
-        <td><?= $row['email'] ?></td>
-        <td><?= $row['roomnumber'] ?></td>
-        <td><?= $row['roomcategorie'] ?></td>
-        <td><?= $row['phone'] ?></td>
-        <td><?= $row['homeadress'] ?></td>
-        <td><?= $row['city'] ?></td>
-        <td><?= $row['country'] ?></td>
+            <td><?php echo $guest['id']  ?> </td>
+            <td><?php echo $guest['firstname'] ?></td>
+            <td><?php echo $guest['lastname'] ?></td>
+            <td><?php echo $guest['email'] ?></td>
+            <td><?php echo $guest['roomnumber'] ?></td>
+            <td><?php echo $guest['roomcategorie'] ?></td>
+            <td><?php echo $guest['phone'] ?></td>
+            <td><?php echo $guest['homeadress'] ?></td>
+            <td><?php echo $guest['city'] ?></td>
+            <td><?php echo $guest['country'] ?></td>
+            <td><?php echo $guest['startdate'] ?></td>
+            <td><?php echo $guest['enddate'] ?></td>
 
     </tr>
-    <tr>
-<!--        first name-->
-<!--        <td>Centro comercial Moctezuma</td>-->
-<!--        <td>Francisco Chang</td>-->
-<!--        <td>Mexico</td>-->
-<!--    </tr>-->
-<!--    last name-->
-<!--    <tr>-->
-<!--        <td>Ernst Handel</td>-->
-<!--        <td>Roland Mendel</td>-->
-<!--        <td>Austria</td>-->
-<!--    </tr>-->
-<!--    roomnumber-->
-<!--    <tr>-->
-<!--        <td>Island Trading</td>-->
-<!--        <td>Helen Bennett</td>-->
-<!--        <td>UK</td>-->
-<!--    </tr>-->
-<!--    roomcategorie-->
-<!--    <tr>-->
-<!--        <td>Laughing Bacchus Winecellars</td>-->
-<!--        <td>Yoshi Tannamuri</td>-->
-<!--        <td>Canada</td>-->
-<!--    </tr>-->
-<!--    Phone number-->
-<!--    <tr>-->
-<!--        <td>Magazzini Alimentari Riuniti</td>-->
-<!--        <td>Giovanni Rovelli</td>-->
-<!--        <td>Italy</td>-->
-<!--    </tr>-->
+        <?php endforeach; ?>
+</div>
+
+<input type="button" class="button-warning" style="width: 100px;" onclick="window.print()" value="Print" />
 </table>
-
-
-
-
 </body>
 </html>
 <!--probeer hier de data vanuit de database weer op te halen-->

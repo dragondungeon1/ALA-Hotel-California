@@ -17,8 +17,8 @@
         <img style="width: 100px; height: 100px" src="../img/logo2.jpg" alt="">
         <a href="../index.php">Home</a>
         <a href="index.php">Rooms</a>
-        <a href="../accommodations.php">Accomodations</a>
-        <a href="#">Contact</a>
+<!--        <a href="../accommodations.php">Accomodations</a>-->
+<!--        <a href="#">Contact</a>-->
     </div>
 </div>
 

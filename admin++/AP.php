@@ -19,8 +19,8 @@
             <img style="width: 100px; height: 100px" src="img/logo2.jpg" alt="">
             <a href="index.php">Home</a>
             <a href="admin++/index.php">Rooms</a>
-            <a href="accommodations.php">Accomodations</a>
-            <a href="#">Contact</a>
+<!--            <a href="accommodations.php">Accomodations</a>-->
+<!--            <a href="#">Contact</a>-->
         </div>
     </div>
 
@@ -48,7 +48,7 @@
         <div class="card" style="border-radius: 10px; background-color: ;">
             <h1>Book a room</h1>
             <p class="price">Book a room here</p>
-            <p><button class="button-warning" style="width: 95%;">Book room</button></p>
+            <p><a href="index.php"><button class="button-warning" style="width: 95%;">Book room</button></a></p>
         </div>
 
         <div class="card" style="border-radius: 10px; background-color: ">
