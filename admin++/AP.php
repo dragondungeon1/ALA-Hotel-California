@@ -57,16 +57,6 @@
             <p><a href="plan.php"> <button class="button-danger" style="width: 95%;">Map</button></a></p>
         </div>
 
-        <div class="card" style="border-radius: 10px; background-color: ">
-            <h1>Book a room</h1>
-            <p class="price">Book a room here</p>
-            <p><button class="button-succes" style="width: 95%;">Book room</button></p>
-        </div>
-
-        <div class="card" style="border-radius: 10px; background-color: ">
-            <h1>Book a room</h1>
-            <p class="price">Book a room here</p>
-            <p><button class="button-primary" style="width: 95%;">Book room</button></p>
         </div>
     </div>
 </head>
